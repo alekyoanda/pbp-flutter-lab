@@ -4,14 +4,11 @@ void main() {
   runApp(const MyApp());
 }
 
-// MyApp merupakan widget stateless
 class MyApp extends StatelessWidget {
-  // MyApp merupakan root dari widget tree, sehingga membangun semua widget di bawahnya.
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
-  // MyApp override method build(BuildContext). Argumen BuildContext adalah argumen yg berguna buat interact sm widget tree.
   Widget build(BuildContext context) {
     // mendeskripsikan tampilan UI: membangun widget subtree di bawahnya.
     return MaterialApp(
@@ -34,7 +31,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// MyHomePage adalah stateful widget sehingga didefinisikan juga dengan State object yaitu _MyHomePageState
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
@@ -50,9 +46,6 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  // di sini _MyHomePageState adalah State object
-  // karena MyHomePage extend stateful widget, maka dia harus mereturn State object yang valid pada createState() methodnya.
-  // di contoh ini, MyHomePage mereturn instance dari _MyHomePageState
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
@@ -70,7 +63,6 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  // fungsi buat decrement counter
   void _decrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -84,8 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  // menampilkan teks tergantung state nya lagi ganjil apa genap
-  Widget getteksGanjilOrGenap() {
+  Widget getTeksGanjilOrGenap() {
     if (_counter % 2 == 0) {
       return const Text('GENAP', style: TextStyle(color: Colors.blue));
     } else {
@@ -127,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            getteksGanjilOrGenap(),
+            getTeksGanjilOrGenap(),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
@@ -137,10 +128,10 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(10.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
+          children: [
             Visibility(
               visible: _counter > 0,
               child: FloatingActionButton(
