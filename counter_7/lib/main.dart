@@ -10,9 +10,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // mendeskripsikan tampilan UI: membangun widget subtree di bawahnya.
     return MaterialApp(
-      // DIRECT CHILD dari MyApp
       title: 'Program Counter',
       theme: ThemeData(
         // This is the theme of your application.
@@ -127,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Padding(
+      floatingActionButton: Container(
         padding: const EdgeInsets.all(10.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
