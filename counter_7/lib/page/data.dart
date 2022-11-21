@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:counter_7/main.dart';
-import 'package:counter_7/form.dart';
-import 'package:counter_7/budget.dart';
+import 'package:counter_7/page/form.dart';
+import 'package:counter_7/model/budget.dart';
+
+import 'my_watchlist_page.dart';
 
 class MyDataPage extends StatefulWidget {
   List<Budget> budgets;
@@ -63,6 +65,19 @@ class _MyDataPageState extends State<MyDataPage> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => MyDataPage(budgets: budgets)),
+                    );
+                  },
+                ),
+                ListTile(
+                  title: Text('My Watchlist'),
+                  onTap: () {
+                    // Route menu ke halaman form
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MyWatchlistPage(
+                                budgets: budgets,
+                              )),
                     );
                   },
                 ),
