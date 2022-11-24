@@ -67,3 +67,28 @@ Perbedaan dari ```Navigator.push``` dan ```Navigator.pushReplacement``` adalah `
 2. Membuat model untuk budget dengan membuat file ```budget.dart```. Di sana saya membuat class baru bernama ```Budget``` yang berisi atribut dasar pada budget.
 3. Membuat halaman penambahan *form* dengan membuat file ```form.dart```. Di sana saya membuat class MyFormPage untuk nanti dipanggil di Drawer serta _MyFormPageState untuk mengatur bagaimana ketika widget MyFormPage ini dibuat. Saya menambahkan Form serta elemen-elemen yang dibutuhkan dalam pembuatan form seperti textbox, dropdown menu, dan button. Setelah itu, pada method onPressed di button submit, saya membuat instance dari Budget baru yang akan dimasukkan ke dalam List<Budget>. Untuk passing data melalui screen yang berbeda - beda, saya menambahkan sebuah atribut baru pada tiap file dart di lib, yaitu atribut List<Budget>.
 4. Membuat halaman penampilan form di file data.dart. Di sana saya membuat class MyDataPage untuk nanti dipanggil di Drawer serta _MyDataPageState mengatur bagaimana ketika widget MyDataPage ini dibuat. Saya menambahkan ListView untuk menampilkan setiap elemen pada List berisi data budget. Setiap elemen akan ditampilkan dalam widget ListTile.
+
+
+# Tugas 9
+
+## Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu?
+Bisa, pengambilan data dari sebuah URI yang berisi data JSON bisa sejatinya tidak memerlukan model dart-nya terlebih dahulu. Data yang di-fetch dari sebuah URI berisi data JSON akan dikembalikan dalam bentuk response HTTP biasa.
+Lalu, gunakan method ```jsonDecode``` untuk parsing dari response tersebut ke dalam JSON object. Jika data sudah dalam bentuk JSON object, maka data sudah bisa diakses.
+
+Jika memungkinkan untuk membuat model dari data JSON, maka lebih baik kita buat modelnya terlebih dahulu. Karena dengan begitu, data menjadi lebih fleksibel untuk diakses dan lebih mudah untuk ditransfer.
+
+## Daftar Widget Yang Dipakai
+```
+Future: Widget yang menjadi hasil dari sebuah asynchronous call
+FutureBuilder: Widget yang dibuat berdasarkan snapshot terbaru dari Future
+CircularProgressIndicator: Widget yang menampilkan animasi cincin berputar
+```
+
+## Mekanisme Pengambilan Data Dari JSON
+Pertama, data JSON akan di-*fetch* terlebih dahulu melalui http get request pada suatu URI. Setelah itu, data JSON tersebut akan diubah ke dalam model yang sudah dibuat pada ```MyWatchlist.dart```. Untuk menggunakan data - data JSON tadi, kita tinggal mengakses atribut yang ada di model ```MyWatchlist.dart```. 
+
+## Implementasi Tugas 9
+1. Membuat sebuah model baru bernama ```MyWatchlist``` yang disimpan dalam file ```MyWatchlist.dart```. Model tersebut akan bersesuaian dengan format JSON yang ingin digunakan.
+2. Membuat sebuah page baru bernama ```MyWatchlistPage``` untuk menampilkan *title* dari semua film yang ada di data JSON yang clickable. 
+3. Menambah navigasi baru ke page ```MyWatchlistPage``` dari semua page lain.
+4. Membuat sebuah page ```MyWatchlistRincianPage``` yang menyimpan detail dari 1 film.
